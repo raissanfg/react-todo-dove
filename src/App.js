@@ -2,9 +2,17 @@ import React from 'react';
 
 const list = [
   {
-    id: 22,
+    id: 1,
     title: 'Complete assignment'
   },
+  {
+    id: 2,
+    title: 'Assignment in progress'
+  },
+  {
+    id: 3,
+    title: 'Assignment complete'
+  }
 ];
 
 function App() {
@@ -13,10 +21,7 @@ function App() {
       <h1>Todo List</h1>
         <ul>
           {list.map(function(item){
-          return <li>{item.id}</li>
-        })}
-          {list.map(function(item){
-          return <li>{item.title}</li>
+          return <li key={item.id}>{item.title}</li>
         })}
         </ul>
     </div>
