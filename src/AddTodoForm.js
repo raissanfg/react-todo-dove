@@ -13,6 +13,8 @@ import React from 'react';
   function handleAddTodo(event) {
     event.preventDefault()
     onAddTodo({ title: todoTitle, id: Date.now()});
+    console.log(todoTitle)
+    setTodoTitle("")
    
   }
      return (
