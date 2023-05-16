@@ -5,7 +5,7 @@ export default function InputWithLabel({id, value, onInputChange, children}) {
 
     useEffect(() => {
         inputRef.current.focus();
-      },[onInputChange]);
+      },[]);
 
     return (
         <>
