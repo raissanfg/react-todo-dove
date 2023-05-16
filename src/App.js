@@ -7,29 +7,36 @@ function useSemiPersistentState() {
     JSON.parse(localStorage.getItem('savedTodoList')) || []);
   
   React.useEffect(() => {
-    localStorage.setItem('savedTodoList', JSON.stringify(todoList));
+    localStorage.setItem('savedTodoList', JSON.stringify(todoList))
   }, [todoList])
   
   return [todoList, setTodoList];
-  
 }
 
 function App() {
-  const [todoList, setTodoList] = useSemiPersistentState()
+  const [todoList, setTodoList] = useSemiPersistentState();
  
   function addTodo(newTodo) {
     setTodoList([...todoList, newTodo]);
   }
 
+  function removeTodo(id){
+    const updatedTodoList = todoList.filter((todo) => todo.id !== id)
+    setTodoList(updatedTodoList)
+  }
+
   return (
+    <>
     <div>
       <h1>Todo List</h1>
-
-      <AddTodoForm  onAddTodo={addTodo}/>
-      <TodoList todoList={todoList} />
+    </div>
+      <hr />
+      <AddTodoForm  onAddTodo={addTodo} />
+      <p> {}</p>
+      <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
       
      
-    </div>
+    </>
   );
 }
 
